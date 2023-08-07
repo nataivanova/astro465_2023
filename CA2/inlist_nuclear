@@ -1,0 +1,83 @@
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+
+  ! display on-screen plots
+    pgstar_flag = .true.
+
+  ! control the output
+      history_columns_file = 'history_columns.list'
+      profile_columns_file = 'profile_columns.list'
+
+  ! save a model at the end of the run
+    save_model_when_terminate = .true.
+    save_model_filename = 'model_last'
+   
+    write_profile_when_terminate=.true.
+    filename_for_profile_when_terminate='profile_last.data'
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .true.
+  Zbase = 0.02
+
+/ ! end of kap namelist
+
+
+&controls
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications
+    initial_mass = 0.05 ! in Msun units
+    initial_z = 0.02
+
+  ! when to stop
+
+  !Stop if the age is more > 1.4e10yr 
+    max_age = 1.4d10
+  ! stop when the total nuclear luminosity (in Ltotal units) is more than this.
+    Lnuc_div_L_upper_limit =0.5
+
+  ! wind
+
+  ! atmosphere
+
+  ! rotation
+
+  ! element diffusion
+
+  ! mlt
+
+  ! mixing
+
+  ! timesteps
+
+  ! mesh
+
+  ! solver
+  ! options for energy conservation (see MESA V, Section 3)
+     
+     energy_eqn_option = 'dedt'
+     use_gold_tolerances = .true.
+
+  ! output
+
+  ! make output more frequent and make sure that last one is saved
+    history_interval = 1
+    profile_interval = 50
+
+
+/ ! end of controls namelist

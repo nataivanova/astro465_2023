@@ -1,0 +1,102 @@
+! inlist to evolve a 15 solar mass star
+
+! For the sake of future readers of this file (yourself included),
+! ONLY include the controls you are actually using.  DO NOT include
+! all of the other controls that simply have their default values.
+
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+
+ ! save a model at the end of the run
+    save_model_when_terminate = .true.
+    save_model_filename = 'sun_last'
+   
+    write_profile_when_terminate=.true.
+    filename_for_profile_when_terminate='profile_last.data'
+    
+  ! display on-screen plots
+    pgstar_flag = .true.
+
+    change_initial_net = .true. ! switch nuclear reaction network
+    new_net_name = 'pp_and_cno_extras.net'
+
+    num_special_rate_factors = 1
+    reaction_for_special_factor(1) = 'r_c12_ag_o16'
+    special_rate_factor(1) = 1
+    filename_of_special_rate(1) = 'r_c12_ag_o16_kunz.txt'
+
+    set_initial_model_number = .true.
+    initial_model_number = 0
+ 
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .false.
+  kap_file_prefix = 'OP_gs98'
+  kap_lowT_prefix = 'lowT_fa05_gs98' ! for lower temperatures.
+  
+
+/ ! end of kap namelist
+
+
+&controls
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications: those you are keep
+    initial_mass = 1.0 ! in Msun units
+    initial_Z = 0.020d0
+    initial_Y = 0.28d0 
+     
+
+! This is where you are to set stops
+! I placed an easiest age stop, but there are better stops you can do to speed up
+! Age: to get the Sun's model, place here the age after you figured out an age from your previous runs
+    max_age=1.e11
+! stop when the center mass fraction of h1 drops below this limit: we clearly are not to go beyond MS
+    xa_central_lower_limit_species(1) = 'h1'
+    xa_central_lower_limit(1) = 1d-3
+    
+  
+  ! wind
+
+  ! atmosphere
+    atm_option = 'T_tau'
+    atm_T_tau_relation = 'solar_Hopf' 
+
+  ! rotation
+
+  ! element diffusion
+
+  ! mlt
+      mixing_length_alpha = 2.155
+
+  ! mixing
+
+  ! timesteps: adjust this to your needs
+      max_years_for_timestep = 5.e8
+
+  ! mesh
+
+  ! solver
+     ! options for energy conservation (see MESA V, Section 3)
+     energy_eqn_option = 'dedt'
+     use_gold_tolerances = .true.
+
+  ! output
+     history_interval = 1
+     profile_interval = 50
+
+/ ! end of controls namelist

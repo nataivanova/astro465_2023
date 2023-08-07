@@ -1,0 +1,51 @@
+&pgstar
+  ! see star/defaults/pgstar.defaults
+
+  ! MESA uses PGPLOT for live plotting and gives the user a tremendous
+  ! amount of control of the presentation of the information.
+
+  ! print each XX file - this will save you plots
+  pgstar_interval  = 100 
+  ! when to trigger file output. -1 then no limit
+  delta_HR_limit_for_file_output=0.05
+
+  ! white_on_black flags -- true means white foreground color on black background
+    file_white_on_black_flag = .false.
+    file_device = 'png' ! options 'png' and 'vcps' for png and postscript
+    file_extension = 'png' ! common names are 'png' and 'ps'
+
+
+  ! which quantites to show in a window and which output toa file
+  ! HR: this plots the history of L,Teff over many timesteps
+  ! TRho" this shows temperature/density profile (internal structure) at single timestep
+  ! by default, only png files are created in png directory
+
+    HR_win_flag = .false.
+    HR_file_flag = .true.
+    TRho_Profile_win_flag = .false.
+    TRho_Profile_file_flag = .true.
+
+
+  ! set static plot bounds: ADJUST for your stars
+    HR_logT_min = 3.4
+    HR_logT_max = 5
+    HR_logL_min = -1
+    HR_logL_max = 6.0
+
+  ! set window size (aspect_ratio = height/width)
+    HR_win_width = 6
+    HR_win_aspect_ratio = 1.0
+
+    TRho_Profile_file_prefix = 'trho_profile_'
+
+  ! add legend explaining colors
+    show_TRho_Profile_legend = .true.
+
+  ! display numerical info about the star
+    show_TRho_Profile_text_info = .true.
+
+  ! set window size (aspect_ratio = height/width)
+    TRho_Profile_win_width = 8
+    TRho_Profile_win_aspect_ratio = 0.75
+
+/ ! end of pgstar namelist
