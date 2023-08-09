@@ -33,6 +33,7 @@
   ! kap options
   ! see kap/defaults/kap.defaults
   use_Type2_opacities = .true.
+! starting specifications: YOU ARE TO EDIT HERE  
   Zbase = 0.02
 
 / ! end of kap namelist
@@ -42,8 +43,8 @@
   ! see star/defaults/controls.defaults
 
   ! starting specifications: YOU ARE TO EDIT HERE
-      initial_mass =1d0 ! in Msun units
-      initial_Z = 0.02d0 ! solar metalicity
+      initial_mass =1.0d0  ! in Msun units
+      initial_Z = 0.02d0 ! metalicity
 
   ! when to stop
 

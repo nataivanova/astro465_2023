@@ -41,17 +41,17 @@
   ! see star/defaults/controls.defaults
 
   ! starting specifications
-    initial_mass =1.0 ! in Msun units
+    initial_mass=1.0 ! in Msun units
     initial_z = 0.02
 
   ! when to stop
 
   !Stop when log10 of the center density exceeds this limit. 12 is the default value but we are OK to stop earlier.
-    log_center_density_limit = 10.
+    log_center_density_upper_limit = 10.
   !Stop if the age is more > 1.4e10yr 
     max_age = 1.4d10
   ! stop if too many models
-  max_model_number =5000
+  max_model_number =1000
 
   ! these several lines switch of nuclear reactions calculations
   ! multiplies energy generation rate, abundaces change rate, weak reactions rate, neutrino generation rate by this factor

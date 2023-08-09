@@ -49,8 +49,8 @@
     
   ! when to stop
 
-!Stop when log10 of the center density exceeds this limit. 11 is default value
-     log_center_density_limit = 10
+!Stop when log10 of the center density exceeds this limit. 12 is default value
+     log_center_density_upper_limit = 10
 !Stop if the age is > 1.e11yr 
       max_age = 1d11
 !Stop when the total nuclear luminosity (in Ltotal units) is more than this.

@@ -20,9 +20,9 @@
   ! TRho" this shows temperature/density profile (internal structure) at single timestep
   ! by default, only png files are created in png directory
 
-    HR_win_flag = .true.
+    HR_win_flag = .false.
     HR_file_flag = .true.
-    TRho_Profile_win_flag = .true.
+    TRho_Profile_win_flag = .false.
     TRho_Profile_file_flag = .true.
 
   ! set static plot bounds: ADJUST for your stars
