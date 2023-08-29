@@ -1,0 +1,5 @@
+export MESA_DIR=/opt/mesa/latest
+export MESASDK_ROOT=/opt/mesa/sdk/latest
+export OMP_NUM_THREADS=2
+export MESA_CACHES_DIR=/srv/mesa/caches
+source $MESASDK_ROOT/bin/mesasdk_init.sh
