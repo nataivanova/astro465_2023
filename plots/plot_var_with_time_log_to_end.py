@@ -19,7 +19,7 @@ c_core_mass=f1.get('c_core_mass')
 he_core_mass=f1.get('he_core_mass')
 pp=f1.get('pp')
 cno=f1.get('cno')
-tri_alfa=f1.get('tri_alfa')
+tri_alfa=f1.get('tri_alpha')
 
 # this is if you need to plot with "reversed" time axis
 #age_final=2.0543e8
@@ -28,7 +28,7 @@ tri_alfa=f1.get('tri_alfa')
 plt.figure(1)
 plt.plot(age,pp,color='red')
 plt.plot(age,cno,color='blue')
-plt.plot(age,tri_alfa,color='black')
+plt.plot(age,tri_alpha,color='black')
 plt.ticklabel_format(axys='x',style='sci',scilimits=(0,0))
 
 # asjust the limits if needed
